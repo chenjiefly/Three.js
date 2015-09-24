@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canvas Demo</title>
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+    <div class="mod-three">
+        <ul>
+            <li>
+                <h1>1、Three.js的基本功能</h1>
+                <canvas id="base" width="500" height="500">
+                    <!-- 如果IE9以下不支持canvas，将会调用lib文件夹下的excanvas.js来实现canvas功能 -->
+                </canvas>
+            </li>
+        </ul>
+    </div>
+    <script data-main="js/config" type="text/javascript" src="js/lib/require.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <!--[if IE]>
+        <script type="text/javascript" src="lib/excanvas.js"></script>
+    <![endif]--> 
+</body>
+</html>
