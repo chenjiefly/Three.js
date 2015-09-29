@@ -26,8 +26,8 @@
 
         // drawCube(scene, material);     // 长方体
         // drawPlane(scene, material);    // 平面
-        drawSphere(scene, material);    // 球体
-        //drawCircle(scene, material);    // 圆形、扇形
+        // drawSphere(scene, material);    // 球体
+        drawCircle(scene, material);    // 圆形、扇形
         //drawCylinder(scene, material);  // 圆柱体、圆台
         //drawTetra(scene, material);     // 正四面体
         //drawOcta(scene, material);      // 正八面体

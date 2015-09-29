@@ -139,4 +139,24 @@
     ```
 
     radius是半径，segmentWidth表示经度切片数，segmentHeight表示纬度切片数，phiStart表示经度开始弧度，phiLength表示经度跨过的弧度，thetaStart表示纬度开始的弧度，thetaLength表示纬度跨过的弧度
+
+*     圆形 circle
+    * 构造函数
+
+    ```
+    THREE.CircleGeometry(radius, segments, thetaStart, thetaLength)
+    ```
+
+    radius是半径，segments是切片数，thetaStart表示纬度开始的弧度，thetaLength表示纬度跨过的弧度
+
+* 圆柱体 cylinder
+    * 构造函数
+
+    ```
+    THREE.CylinderGeometry(radiusTop, radiusBottom, height, radiusSegments, heightSegments, openEnded)
+    ```
+
+    radiusTop是上底面半径，radiusBottom是下地面半径，height是柱体高度，radiusSegments和heightSegments都是切片数，openEnded表示是否没有上下底面，缺省值为false，表示有上下底面
+
+    * 标准圆柱体
     
