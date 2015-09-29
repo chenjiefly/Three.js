@@ -19,13 +19,14 @@
         scene.add(camera);
 
         var material = new THREE.MeshLambertMaterial({
-            color: 0xffff00,
-            // wireframe: true
+            color: 0xffff00
+            // , wireframe: true
         });
 
         var mesh = new THREE.Mesh(new THREE.TextGeometry('Hello', {
-            size: 1,
-            height: 1
+            size: 1
+            , height: 1
+            // , bevelEnabled: true
         }), material);
         scene.add(mesh);
         

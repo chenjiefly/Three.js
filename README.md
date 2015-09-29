@@ -140,7 +140,7 @@
 
     radius是半径，segmentWidth表示经度切片数，segmentHeight表示纬度切片数，phiStart表示经度开始弧度，phiLength表示经度跨过的弧度，thetaStart表示纬度开始的弧度，thetaLength表示纬度跨过的弧度
 
-*     圆形 circle
+* 圆形 circle
     * 构造函数
 
     ```
@@ -196,3 +196,23 @@
     ```
 
     其他参数同圆环面，p和q是控制样式的参数，一般可以缺省，heightScale是在z轴上的缩放
+
+* 文字形状
+    * 构造函数
+
+    ```
+    THREE.TextGeometry(text, parameters)
+    ```
+
+    parameters是以下参数组成的对象：
+    * size：字号大小，一般为答谢字母的高度
+    * height：文字的厚度
+    * curveSegments：弧线分段数，使得文字的曲线更加光滑
+    * font：字体，默认是“helvetiker”，需对应引用的字体文件
+    * weight：值为“normal”或“bold”，表示是否加粗
+    * style：值为“normal”或“italics”，表示是否斜体
+    * bevelEnabled：布尔值，是否使用倒角，意为在边缘处斜切
+    * bevelThickness：倒角厚度
+    * bevelSize：倒角宽度
+
+#### 4、
