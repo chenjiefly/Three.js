@@ -26,6 +26,8 @@
         var mesh = new THREE.Mesh(new THREE.TextGeometry('Hello', {
             size: 1
             , height: 1
+            // , weight: 'bold'   // normal
+            // , style: 'italics' // normal
             // , bevelEnabled: true
         }), material);
         scene.add(mesh);
