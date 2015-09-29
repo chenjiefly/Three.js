@@ -110,7 +110,7 @@
     ```
 
 #### 3、基本几何形状
-* 长方体
+* 长方体 cube
     * 默认位置
         * 物体的默认位置是原点，对于立方体而言，其几何中心在原点的位置
     * 构造函数
@@ -121,9 +121,22 @@
 
     前三个分别是x、y和z轴方向上的长度，后三个参数分别表示x、y和z轴方向上的分段数（缺省为1）
 
-* 平面
+* 平面 plane
     * 构造函数
 
     ```
     THREE.PlaneGeometry(width, height, widthSegments, heightSegments)
     ```
+
+    width是x方向上的长度，height是y方向上的长度，后两个参数是分段数。
+    如果需要创建的平面在x轴和z轴所在的平面内，可以通过物体的旋转来实现。
+
+* 球体 sphere
+    * 构造函数
+
+    ```
+    THREE.SphereGeometry(radius, segmentsWidth, segmentsHeight, phiStart, phiLength, thetaStart, thetaLength)
+    ```
+
+    radius是半径，segmentWidth表示经度切片数，segmentHeight表示纬度切片数，phiStart表示经度开始弧度，phiLength表示经度跨过的弧度，thetaStart表示纬度开始的弧度，thetaLength表示纬度跨过的弧度
+    
