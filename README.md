@@ -158,5 +158,41 @@
 
     radiusTop是上底面半径，radiusBottom是下地面半径，height是柱体高度，radiusSegments和heightSegments都是切片数，openEnded表示是否没有上下底面，缺省值为false，表示有上下底面
 
-    * 标准圆柱体
-    
+* 正四面体
+    * 构造函数
+
+    ```
+    THREE.TetrahedronGeometry(radius, detail)
+    ```
+    radius为半径，detail是细节层次(Level of Detail)的层数,对于大面片数模型,可以控制在视角靠近物体时,显示面片数多的精细模型,而在离物体较远时,显示面片数较少的粗略模型。
+
+* 正八面体
+    * 构造函数
+
+    ```
+    THREE.OctahedronGeometry(radius, detail)
+    ```
+* 正十二面体
+    * 构造函数
+
+    ```
+    THREE.IcosahedronGeometry(radius, detail)
+    ```
+
+* 圆环面
+    * 构造函数
+
+    ```
+    THREE.TorusGeometry(radius, tube, radialSegments, tubularSegments, arc)
+    ```
+
+    radius是圆环半径，tube是管道半径，radialSegments和tubularSegments是分段数，arc是圆环面的弧度，缺省值为Math.PI * 2
+
+* 圆环节
+    * 构造函数
+
+    ```
+    THREE.TorusKnotGeometry(radius, tube, radialSegments, tubularSegments, p, q, heightScale)
+    ```
+
+    其他参数同圆环面，p和q是控制样式的参数，一般可以缺省，heightScale是在z轴上的缩放

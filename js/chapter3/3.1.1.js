@@ -27,13 +27,13 @@
         // drawCube(scene, material);     // 长方体
         // drawPlane(scene, material);    // 平面
         // drawSphere(scene, material);    // 球体
-        drawCircle(scene, material);    // 圆形、扇形
-        //drawCylinder(scene, material);  // 圆柱体、圆台
-        //drawTetra(scene, material);     // 正四面体
-        //drawOcta(scene, material);      // 正八面体
-        //drawIcosa(scene, material);     // 正十二面体
-        //drawTorus(scene, material);     // 圆环面
-        //drawTorusKnot(scene, material); // 圆环节
+        // drawCircle(scene, material);    // 圆形、扇形
+        // drawCylinder(scene, material);  // 圆柱体、圆台
+        // drawTetra(scene, material);     // 正四面体
+        // drawOcta(scene, material);      // 正八面体
+        // drawIcosa(scene, material);     // 正十二面体
+        // drawTorus(scene, material);     // 圆环面
+        drawTorusKnot(scene, material); // 圆环节
 
         // render
         renderer.render(scene, camera);
@@ -68,9 +68,9 @@
     }
 
     function drawCylinder(scene, material) {
-        var cylinder = new THREE.Mesh(new THREE.CylinderGeometry(2, 2, 4, 18, 3), material);
-        //var cylinder = new THREE.Mesh(new THREE.CylinderGeometry(2, 3, 4, 18, 3), material);
-        //var cylinder = new THREE.Mesh(new THREE.CylinderGeometry(2, 3, 4, 18, 3, true), material);
+        var cylinder = new THREE.Mesh(new THREE.CylinderGeometry(2, 2, 4, 18, 3), material);  // 标准圆柱体
+        // var cylinder = new THREE.Mesh(new THREE.CylinderGeometry(2, 3, 4, 18, 3), material);  // 圆台
+        // var cylinder = new THREE.Mesh(new THREE.CylinderGeometry(2, 3, 4, 18, 3, true), material);  // 无上下底的圆台
         scene.add(cylinder);
     }
 
@@ -90,7 +90,7 @@
     }
 
     function drawTorus(scene, material) {
-        var torus = new THREE.Mesh(new THREE.TorusGeometry(3, 1, 4, 8, Math.PI / 3 * 2), material);
+        var torus = new THREE.Mesh(new THREE.TorusGeometry(3, 1, 14, 18, Math.PI  * 2), material);
         scene.add(torus);
     }
 

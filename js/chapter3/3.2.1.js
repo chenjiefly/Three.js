@@ -12,16 +12,28 @@
         drawAxes(scene);  // 绘制坐标系
 
         // 透视投影照相机
-        var camera = new THREE.OrthographicCamera(-2, 2, 1.5, -1.5, 1, 10);
+        var camera = new THREE.OrthographicCamera(-2.5, 2.5, 1.875, -1.875, 0.1, 100);
 
-        camera.position.set(1, 1, 5);
-        camera.lookAt(new THREE.Vector3(0, 0, 0));
+        camera.position.set(5, 5, 20);
+        camera.lookAt(new THREE.Vector3(1, 0, 0));
         scene.add(camera);
 
-        // 创建平面
-        var plane = new THREE.PlaneGeometry(2, 4);
+        var material = new THREE.MeshLambertMaterial({
+            color: 0xffff00,
+            // wireframe: true
+        });
 
-        scene.add(plane);
+        var mesh = new THREE.Mesh(new THREE.TextGeometry('Hello', {
+            size: 1,
+            height: 1
+        }), material);
+        scene.add(mesh);
+        
+        var light = new THREE.DirectionalLight(0xffffff);
+        light.position.set(-5, 10, 5);
+        scene.add(light);
+        
+        // render
         renderer.render(scene, camera);
     });
 
