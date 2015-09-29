@@ -2,7 +2,7 @@
 ### 一、学习教材：Three.js入门指南
 ### 二、工程内容：书中的例子
 ### 三、文件组织：按照章节顺序
-### 四、内容
+### 四、重要内容摘录
 #### 1、three.js程序基本组成
 * 一个典型的 Three.js 程序至少要包括渲染器(Renderer)、场景(Scene)、照相机 (Camera),以及在场景中创建的物体。
 * 渲染器
@@ -107,4 +107,23 @@
 
     ```
     camera.lookAt(new THREE.Vector3(0, 0, 0));
+    ```
+
+#### 3、基本几何形状
+* 长方体
+    * 默认位置
+        * 物体的默认位置是原点，对于立方体而言，其几何中心在原点的位置
+    * 构造函数
+
+    ```
+    THREE.CubeGeometry(width, height, depth, widthSegments, heightSegments, depthSegments)
+    ```
+
+    前三个分别是x、y和z轴方向上的长度，后三个参数分别表示x、y和z轴方向上的分段数（缺省为1）
+
+* 平面
+    * 构造函数
+
+    ```
+    THREE.PlaneGeometry(width, height, widthSegments, heightSegments)
     ```
