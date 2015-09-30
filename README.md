@@ -402,4 +402,13 @@
     ```
 
 #### 6、动画
-* 
+* 每秒帧数 FPS(Frames Per Second)
+    * 一般取30~60之间
+
+* setInterval 方法
+    * id = setInterval(func, msec)
+    * func是回调函数，msec是毫秒数，返回id值
+* clearInterval 方法
+    * clearInterval(id)
+    * 参数id为setInterval方法返回的值
+
