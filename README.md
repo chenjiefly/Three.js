@@ -240,6 +240,54 @@
         geometry.faces.push(new THREE.Face3(dot2, dot3, dot4));
     }
     ```
-    
+
+* 注意
+    * 对于wireframe，R59版本使用四边形来渲染形状，R60版本开始使用三角形面来渲染形状
+    * 对于R60后的版本，如果只是需要不带对角线的长方体，可使用BoxHelper
+    * 关于该问题可参考[https://github.com/mrdoob/three.js/issues/3788](https://github.com/mrdoob/three.js/issues/3788)
 
 #### 4、材质
+* 材质
+
+    独立于物体顶点信息之外的与渲染效果相关的属性。通过设置材质可以改变物体的颜色、纹理贴图、光照模式等。
+
+* 基本材质 BasicMaterial
+    * 渲染后物体的颜色始终为该材质的颜色,而不会 由于光照产生明暗、阴影效果。如果没有指定材质的颜色,则颜色是随机的
+    * 构造函数
+
+    ```
+    THREE.MeshBasicMaterial(opt)
+    ```
+
+    opt可缺省，是包含属性的对象：
+        * color：十六进制RGB颜色，如0x0000ff
+        * wireframe：是否渲染线而非面，默认为false
+        * visible：是否可见，默认为true
+        * side：渲染面片正面或反面，默认为正面THREE.FrontSide，反面为THREE.BackSide，或双面THREE.DoubleSide
+        * map：使用纹理贴图
+
+* Lambert材质 MeshLambertMaterial
+    * Lambert光照模型的主要特点是只考虑漫反射而不考虑镜面反射的效果,因而对于金属、镜子等需要镜面反射效果的物体就不适应,对于其他大部分物体的漫反射效果都是适用的。
+    * 构造函数
+
+    ```
+    new THREE.MeshLambertMaterial(opt)
+    ```
+    
+    opt可缺省，是包含属性的对象：
+        * color：十六进制RGB颜色，如0x0000ff
+        * emissive：自发光颜色，可用来表现光源，如打开可表现太阳自发光的红色，关闭可表现地球半阴影效果
+        * wireframe：渲染线而非面，默认为true
+
+* Phong 材质
+    * Phong光照模型考虑了镜面反射的效果,因此对于金属、镜面的表现尤为适合。
+    * 构造函数
+
+    ```
+    new THREE.MeshPhongMaterial(opt)
+    ```
+    
+    opt可缺省，是包含属性的对象：
+        * color：十六进制RGB颜色，如0x0000ff
+        * emissive：自发光颜色，可用来表现光源，如打开可表现太阳自发光的红色，关闭可表现地球半阴影效果
+        * wireframe：渲染线而非面，默认为true

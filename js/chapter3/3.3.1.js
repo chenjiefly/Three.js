@@ -19,8 +19,8 @@
         scene.add(camera);
 
         var material = new THREE.MeshBasicMaterial({  // MeshLambertMaterial
-            color: 0xffff00
-            , wireframe: true
+            color: 0xffff00, 
+            wireframe: true
         });
 
         // 初始化几何形状
