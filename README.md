@@ -354,3 +354,52 @@
     
     var plane = new THREE.Mesh(new THREE.PlaneGeometry(12, 12), material);
     ```
+
+#### 5、网格
+* 网格(Mesh)是由顶点、边、面等组成的一种物体，其他物体还包括线段(Line)、骨骼 (Bone)、粒子系统(ParticleSystem)等
+* 更改网格属性
+    * 即使已经创建了网格物体，也可以更改网格的属性，如材质
+
+    ```
+    // 材质
+    var material = new THREE.MeshLambertMaterial({
+        color: 0xffff00
+        // wireframe: true
+    });
+
+    // 创建长方体
+    var geometry = new THREE.CubeGeometry(1, 2, 3, 2, 2, 3);
+    var cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    // 更改网格属性
+    cube.material = new THREE.MeshLambertMaterial({
+        color: 0xffff00,
+        wireframe: true
+    });
+    ```
+
+* 位置、缩放和旋转
+    * 位置 position
+
+    ```
+    mesh.position.x = 1;  // 设置单个属性
+    mesh.position.set(x, y, z);  // 设置多个属性
+    ```
+
+    * 缩放 scale
+    
+    ```
+    mesh.scale.x = 2;  // 设置单个属性
+    mesh.scale.set(x, y, z);  // 设置多个属性
+    ```
+
+    * 旋转 rotation
+
+    ```
+    mesh.rotation.x = 90;  // 设置单个属性
+    mesh.rotation.set(x, y, z);  // 设置多个属性
+    ```
+
+#### 6、动画
+* 
