@@ -24,26 +24,29 @@
         //     wireframe: true
         // });
 
-        // Lambert材质
+        // Lambert材质，打开球体模型
         // var material = new THREE.MeshLambertMaterial({
         //     color: 0xffff00,
         //     emissive: 0xff0000,  // 打开可表现太阳自发光的红色，关闭可表现地球半阴影效果
         //     // wireframe: true
         // });
 
-        // Phong材质
-        var material = new THREE.MeshPhongMaterial({
-            // color: 0xff0000,
-            // emissive: 0xff0000,  // 打开可表现太阳自发光的红色，关闭可表现地球半阴影效果
-            specular: 0xff0000,  // 高光
-            shininess: 100,     // 高光斑点，值越大，斑点越小
+        // Phong材质，打开球体模型
+        // var material = new THREE.MeshPhongMaterial({
+        //     // color: 0xff0000,
+        //     // emissive: 0xff0000,  // 打开可表现太阳自发光的红色，关闭可表现地球半阴影效果
+        //     specular: 0xff0000,  // 高光
+        //     shininess: 100,     // 高光斑点，值越大，斑点越小
 
-            // wireframe: true
-        });
+        //     // wireframe: true
+        // });
+         
+        // 法向材质，打开长方体模型，更改照相机视角可发现各面颜色变化
+        var material = new THREE.MeshNormalMaterial();
 
-        // drawCube(scene, material);     // 长方体
+        drawCube(scene, material);     // 长方体
         // drawPlane(scene, material);    // 平面
-        drawSphere(scene, material);    // 球体
+        // drawSphere(scene, material);    // 球体
         // drawCircle(scene, material);    // 圆形、扇形
         // drawCylinder(scene, material);  // 圆柱体、圆台
         // drawTetra(scene, material);     // 正四面体
