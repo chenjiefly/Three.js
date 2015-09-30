@@ -216,7 +216,30 @@
     * bevelSize：倒角宽度
 
 * 自定义形状
-    * 
+    * 基本方法：手动指定每个顶点位置,以及顶点连接情况
+    * 建议方法：在 3ds Max 之类的建模软件中创建模 型,然后使用 Three.js 导入到场景中
+    * 类：Geometry，该类是其他基本几何形状的父类
+    * 构造函数
 
+    ```
+    var geometry = THREE.Geometry();    // 构造函数
+    geometry.vertices.push(new THREE.Vector3(x, y, z));     // 设置形状顶点位置方法
+    geometry.faces.push(new THREE.Face3(dot1, dot2, dot3)); // 创建三个顶点组成的面片，三个参数分别是三个顶点在geometry.vertices中的序号
+    geometry.faces.push(new THREE.Face4(dot1, dot2, dot3, dot4));  // face4在新版中已经被移除，使用两个face3替代，如下的face4()所示
     
+    /**
+     * [face4 创建四个顶点的平面]
+     * @param  {[Object]} geometry [自定义形状对象]
+     * @param  {[Number]} dot1     [平面端点1]
+     * @param  {[Number]} dot2     [平面端点2]
+     * @param  {[Number]} dot3     [平面端点3]
+     * @param  {[Number]} dot4     [平面端点4]
+     */
+    function face4(geometry, dot1, dot2, dot3, dot4) {
+        geometry.faces.push(new THREE.Face3(dot1, dot2, dot3));
+        geometry.faces.push(new THREE.Face3(dot2, dot3, dot4));
+    }
+    ```
+    
+
 #### 4、材质
