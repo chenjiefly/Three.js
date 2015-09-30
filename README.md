@@ -2,7 +2,8 @@
 ### 一、学习教材：Three.js入门指南
 ### 二、工程内容：书中的例子
 ### 三、文件组织：按照章节顺序
-### 四、重要内容摘录
+### 四、API参考：[http://threejs.org/docs/](http://threejs.org/docs/)
+### 五、重要内容摘录
 #### 1、three.js程序基本组成
 * 一个典型的 Three.js 程序至少要包括渲染器(Renderer)、场景(Scene)、照相机 (Camera),以及在场景中创建的物体。
 * 渲染器
@@ -339,3 +340,17 @@
     scene.add(cube);
     ```
 
+    * 纹理复制
+
+    ```
+    var texture = THREE.ImageUtils.loadTexture('../img/chess.png', {}, function() {
+        renderer.render(scene, camera);
+    });
+    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+    texture.repeat.set(4, 4);
+    var material = new THREE.MeshLambertMaterial({
+        map: texture
+    });
+    
+    var plane = new THREE.Mesh(new THREE.PlaneGeometry(12, 12), material);
+    ```

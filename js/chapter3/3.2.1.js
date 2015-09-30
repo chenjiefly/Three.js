@@ -11,7 +11,7 @@
         var scene = new THREE.Scene();
         drawAxes(scene);  // 绘制坐标系
 
-        // 透视投影照相机
+        // 正交投影照相机
         var camera = new THREE.OrthographicCamera(-2.5, 2.5, 1.875, -1.875, 0.1, 100);
 
         camera.position.set(5, 5, 20);

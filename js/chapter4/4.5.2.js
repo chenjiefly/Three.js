@@ -10,7 +10,7 @@
         // 场景
         var scene = new THREE.Scene();
 
-        // 透视投影照相机
+        // 正交投影照相机
         var camera = new THREE.OrthographicCamera(-5, 5, 3.75, -3.75, 0.1, 100);
 
         camera.position.set(25, 25, 25);
