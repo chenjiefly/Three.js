@@ -408,7 +408,33 @@
 * setInterval 方法
     * id = setInterval(func, msec)
     * func是回调函数，msec是毫秒数，返回id值
+    * 适合保证程序的运算不至于导致延迟的情况下提供更加简洁的逻辑（无需自行处理时间），但是不一定保证时间间隔每次都相同
 * clearInterval 方法
     * clearInterval(id)
     * 参数id为setInterval方法返回的值
+* requestAnimationFrame 方法
+    * id = requestAnimationFrame(func)
+    * func是回调函数，不需要时间间隔，间隔时间会由浏览器自行决定
+    * 适合对于时间较为敏感的环境，但是动画逻辑更加复杂
+    * **注意：各浏览器中该方法名称可能不一致，需要使用如下代码检测**
 
+    ```
+    var requestAnimationFrame = window.requestAnimationFrame ||   // 检查浏览器支持的方法名称
+                                window.mozRequestAnimationFrame || 
+                                window.webkitRequestAnimationFrame || 
+                                window.msRequestAnimationFrame;
+    window.requestAnimationFrame = requestAnimationFrame;
+    ```
+
+* cancelAniamtionFrame 方法
+    * cancelAnimationFrame(id)
+    * 参数id为requestAnimationFrame方法返回的值
+    * **注意：各浏览器中该方法名称可能不一致，需要使用如下代码检测**
+
+    ```
+    var cancelAnimationFrame = window.cancelAnimationFrame ||   // 检查浏览器支持的方法名称
+                                window.mozCancelAnimationFrame || 
+                                window.webkitCancelAnimationFrame || 
+                                window.msCancelAnimationFrame;
+    window.cancelAnimationFrame = cancelAnimationFrame;
+    ```

@@ -39,28 +39,58 @@
         light.position.set(10, 15, 20);
         scene.add(light);
 
-        // animation
-        var id = setInterval(draw, 20);;
+        /***************** animation *****************/
+        var id;
+
+        // 绑定事件
         $('button').on('click', function() {
             var self = $(this);
 
             if (!id && self.hasClass('startBtn')) {
-                id = setInterval(draw, 20);
+                // id = setInterval(drawByInterval, 20);
+                id = requestAnimationFrame(drawByRequestAnimationFrame);
             } else if (id && self.hasClass('stopBtn')) {
-                clearInterval(id);
+                // clearInterval(id);
+                cancelAnimationFrame(id);
                 id = null;
             }
         })
-        
-        function draw() {
+
+        // setInterval()方法实现
+        // id = setInterval(drawByInterval, 20);  // 开始执行动画
+
+        // function drawByInterval() {
+        //     cube.rotation.x = (cube.rotation.x + 0.01) % (Math.PI * 2);
+        //     cube.rotation.y = (cube.rotation.y + 0.01) % (Math.PI * 2);
+        //     renderer.render(scene, camera);
+        // }
+
+        // requestAnimationFrame()方法实现
+        var requestAnimationFrame = window.requestAnimationFrame ||   // 检查浏览器支持的方法名称
+                                    window.mozRequestAnimationFrame || 
+                                    window.webkitRequestAnimationFrame || 
+                                    window.msRequestAnimationFrame;
+        window.requestAnimationFrame = requestAnimationFrame;
+
+        var cancelAnimationFrame = window.cancelAnimationFrame ||   // 检查浏览器支持的方法名称
+                                    window.mozCancelAnimationFrame || 
+                                    window.webkitCancelAnimationFrame || 
+                                    window.msCancelAnimationFrame;
+        window.cancelAnimationFrame = cancelAnimationFrame;
+
+        id = requestAnimationFrame(drawByRequestAnimationFrame);  // 开始执行动画
+
+        function drawByRequestAnimationFrame() {
             cube.rotation.x = (cube.rotation.x + 0.01) % (Math.PI * 2);
             cube.rotation.y = (cube.rotation.y + 0.01) % (Math.PI * 2);
             renderer.render(scene, camera);
+
+            id = requestAnimationFrame(drawByRequestAnimationFrame);
         }
-});
+    });
 
 
-    
+
 
     /**
      * [drawAxes 绘制坐标系函数，x轴红色，y轴绿色，z轴蓝色]
