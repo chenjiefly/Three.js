@@ -299,3 +299,43 @@
     ```
     new THREE.MeshNormalMaterial()
     ```
+
+* 纹理贴图
+    * 方法 THREE.ImageUtils.loadTexture(url, mapping, onLoad, onError)
+
+    其中onLoad是一个方法，功能是在导入纹理图片成功后执行回调，未使用动画时可以执行一次渲染重绘，保证纹理导入成功后可见
+
+    ```
+    /* 单纹理图片贴满正方体 */
+
+    // 导入纹理图像
+    var texture = THREE.ImageUtils.loadTexture('../img/0.png', {}, function() {
+        renderer.render(scene, camera);
+    });
+
+    // 使用纹理图
+    var material = new THREE.MeshLambertMaterial({
+        map: texture 
+    });
+
+    /* 6张纹理图片贴在正方体6个面商 */
+
+    // 导入纹理图像
+    var materials = [];
+    for (var i = 0; i < 6; i++) {
+        materials.push(new THREE.MeshBasicMaterial({
+            map: THREE.ImageUtils.loadTexture('../../img/' + i + '.png', {}, function() {
+                renderer.render(scene, camera);
+            }),
+            overdraw: true
+        }));
+    }
+    
+    // 创建正方体
+    var cube = new THREE.Mesh(new THREE.CubeGeometry(3, 3, 3), 
+        new THREE.MeshFaceMaterial(materials)  // 注意此处的用法
+    );
+    
+    scene.add(cube);
+    ```
+
