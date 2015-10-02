@@ -18,21 +18,24 @@
         scene.add(camera);
 
         // 材质
-        var material1 = new THREE.MeshLambertMaterial({
-            color: 0x0000ff,
-            // ambient: 0xff0000  // 新版中似乎没有这个配置项了，更改材质的ambient参数可观察物体反射环境光的能力
-        });
-        var material2 = new THREE.MeshLambertMaterial({
-            color: 0xffffff,
-            // ambient: 0x00ff00
+        var material = new THREE.MeshLambertMaterial({
+            color: 0xff0000,
+            ambient: 0xff0000  // 更改材质的ambient参数可观察物体反射环境光的能力
+            // wireframe: true
         });
 
         // 创建长方体
         var geometry = new THREE.CubeGeometry(1, 2, 3, 2, 2, 3);
-        var cube1 = new THREE.Mesh(geometry, material1);  // 只能反射红光
-        var cube2 = new THREE.Mesh(geometry, material2);  // 只能反射绿光
+        var cube1 = new THREE.Mesh(geometry, material);
+        var cube2 = new THREE.Mesh(geometry, material);
         scene.add(cube1);
         scene.add(cube2);
+
+        // 更改网格属性
+        cube1.material = new THREE.MeshLambertMaterial({
+            color: 0xffff00,
+            ambient: 0x00ff00
+        });
 
         cube1.position.x = -2;
         cube2.position.x = 2;
