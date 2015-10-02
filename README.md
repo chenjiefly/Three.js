@@ -484,7 +484,53 @@
     ```
 
     hex是光源的十六进制的颜色值；intensity是亮度，缺省值为1，表示100%的亮度；distance是光源最远照射到的距离，缺省值为0.
-    
+
 
 * 平行光
+    * 定义
+
+    对于任意平行的平面，平行光照射的亮度都是相同的，而与平面所在位置无关，只与平面法向量相关。
+    对于平行光而言，**设置光源位置尤为重要**。
+
+    * 构造函数
+
+    ```
+    THREE.DirectionalLight(hex, intensity)
+    ```
+
+    hex是光源的十六进制颜色值；intensity是亮度，缺省值为1，表示100%的亮度。
+
+    * 光源位置
+
+    使用`light.position.set(x, y, z)`设置光源位置后，平ing光将以(-x, -y, -z)的矢量方向照射到所有平面。
+
 * 聚光灯
+    * 定义
+
+    一种特殊的点光源，能够朝着一个方向投射光线，投射出类似圆锥形的光线
+
+    * 构造函数
+
+    ```
+    THREE.SpotLight(hex, intensity, distance, angle, exponent)
+    ```
+
+    前三个参数同点光源，angle为聚光灯的张角，缺省值是Math.PI/3，最大值是Math.PI/2；
+    exponent是光强在target的衰减指数（target需要在之后定义，缺省值为(0, 0, 0)），缺省值是10 
+
+    * 物体跟随
+
+    让聚光灯跟随物体移动可使用如下代码
+
+    ```
+    light.target = mesh;  // mesh是物体形状对象
+    ```
+
+    * 聚光灯照射到某一点
+
+    ```
+    light.position.set(x1, y1, z1);
+    light.target.position.set(x2, y2, z2);
+    ```
+
+    光线将从(x1, y1, z1)照射到(x2, y2, z2)方向
