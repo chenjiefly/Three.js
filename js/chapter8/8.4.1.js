@@ -20,6 +20,7 @@
 
         renderer.setClearColor(0x00000); // 渲染器背景
         renderer.shadowMap.enabled = true;
+        renderer.shadowMapSoft = true;
 
         // 场景
         var scene = new THREE.Scene();
@@ -47,7 +48,7 @@
                 color: 0x00ff00
             }));
         cube.position.x = 2;
-        // cube.castShadow = true;
+        cube.castShadow = true;
         scene.add(cube);
 
         // light
@@ -56,6 +57,15 @@
         light.target = cube;
         light.castShadow = true;
         scene.add(light);
+
+        // 设置阴影
+        light.shadowCameraNear = 2;
+        light.shadowCameraFar = 10;
+        light.shadowCameraFov = 30;
+        light.shadowCameraVisible = true;
+        light.shadowMapWidth = 1024;
+        light.shadowMapHeight = 1024;
+        light.shadowDarkness = 0.3;
 
         // ambient light
         var ambient = new THREE.AmbientLight(0x666666);

@@ -534,3 +534,54 @@
     ```
 
     光线将从(x1, y1, z1)照射到(x2, y2, z2)方向
+
+* 阴影
+    * 能形成阴影的光源只有THREE.DirectionalLight与THREE.SpotLight
+    * 能表现阴影效果的材质只有THREE.LambertMaterial与THREE.PhongMaterial
+    * 步骤一：通知渲染器渲染阴影
+
+    ```
+    renderer.shadowMap.enabled = true;  // 与教程中不同，新版库做修改了
+    ```
+
+    * 步骤二：设置光源和所有要产生阴影的物体
+
+    ```
+    light.castShadow = true;
+    mesh.castShadow = true;
+    ```
+
+    * 步骤三：设置接受阴影的物体
+
+    ```
+    mesh.receiveShadow = true;
+    ```
+
+    * 步骤四：设置光源阴影的相关属性，类似照相机的视景区
+
+    ```
+    // 对于聚光灯
+    light.shadowCameraNear = 2;  // 只有介于shadowCameraNear和shadowCameraFar之间的物体将产生阴影
+    light.shadowCameraFar = 10;
+    light.shadowCameraFov = 30;  // 阴影张角
+
+    // 对于平行光
+    light.shadowCameraNear = 2;  // 只有在下面六个参数围成的长方体内的物体才会产生阴影效果
+    light.shadowCameraFar = 10;
+    light.shadowCameraLeft = 2;
+    light.shadowCameraRight = 10;
+    light.shadowCameraTop = 2;
+    light.shadowCameraBottom = 10;
+    ```
+
+    * 步骤五：开启阴影照相机位置可视开关（用于观察阴影照相机位置）
+
+    ```
+    light.shadowCameraVisible = true;
+    ```
+
+    * 步骤六：调整阴影深浅
+
+    ```
+    light.shadowDarkness = 0.3;  // 范围是0~1，越小越浅
+    ```
