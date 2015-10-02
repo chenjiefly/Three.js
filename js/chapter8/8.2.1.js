@@ -19,13 +19,11 @@
 
         // 材质
         var material = new THREE.MeshLambertMaterial({
-            color: 0xff0000,
-            ambient: 0xff0000  // 更改材质的ambient参数可观察物体反射环境光的能力
-            // wireframe: true
+            color: 0xff0000
         });
 
         // 创建长方体
-        var geometry = new THREE.CubeGeometry(1, 2, 3, 2, 2, 3);
+        var geometry = new THREE.CubeGeometry(2, 2, 2, 2, 2, 3);
         var cube1 = new THREE.Mesh(geometry, material);
         var cube2 = new THREE.Mesh(geometry, material);
         scene.add(cube1);
@@ -33,16 +31,15 @@
 
         // 更改网格属性
         cube1.material = new THREE.MeshLambertMaterial({
-            color: 0xffff00,
-            ambient: 0x00ff00
+            color: 0xffff00
         });
 
         cube1.position.x = -2;
         cube2.position.x = 2;
 
-        // light：环境光
-        var light = new THREE.AmbientLight(0xffffff);
-        light.position.set(10, 15, 20);
+        // light：点光源
+        var light = new THREE.PointLight(0xffffff, 2, 100);
+        light.position.set(4, 3, 3);
         scene.add(light);
 
         renderer.render(scene, camera);
