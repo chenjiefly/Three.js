@@ -1,4 +1,6 @@
 (function($) {
+    var isDamp = true;  // 是否阻尼运动
+
     $(function() {
         // requestAnimationFrame()方法在不同浏览器下的方法名称
         var requestAnimationFrame = window.requestAnimationFrame || // 检查浏览器支持的方法名称
@@ -73,6 +75,7 @@
         var t = 0;  // 虚拟时间
         var v0 = 0;  // 每次反弹起始速度
         var isDown = true; // 标记是否向下
+        var f = 0.01;  // 阻尼
 
         // 绑定事件
         $('button.dropBtn').on('click', function() {
@@ -92,7 +95,12 @@
                 if (isDown) {  // 向下自由落体运动
                     ballMesh.position.y = maxHeight - a * t * t / 2;
                     v = a * t;
-                    v0 = v;
+
+                    if (isDamp) {  // 加上是阻尼运动，去掉是不损失能量的理想运动
+                        v -= f;
+                    }
+                    
+                    v0 = v + a;  // 即v0=a*(t+1) 下一时刻的速度
                 } else {  // 向上反弹运动
                     ballMesh.position.y = v0 * t - a * t * t / 2;
                     v = v0 - a * t;
