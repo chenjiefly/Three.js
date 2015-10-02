@@ -438,3 +438,12 @@
                                 window.msCancelAnimationFrame;
     window.cancelAnimationFrame = cancelAnimationFrame;
     ```
+
+#### 7、外部模型
+* three.js支持3dMax导出的模型文件，如*.obj，*.mtl等格式
+* 有材质的模型
+    * 可导入无材质模型后再设置材质
+    * 也可在建模软件中导出材质信息
+
+#### 8、光与影
+* 
